@@ -1,0 +1,4 @@
+= link_to "새로운 포스트 작성", new_post_path
+
+- @posts.each do |post|
+	%h2= link_to post.title, post
