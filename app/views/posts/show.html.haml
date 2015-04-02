@@ -1,5 +1,6 @@
 %h1= @post.title
 %p= @post.description
+%p= @post.user.email
 
 = link_to "수정", edit_post_path
 = link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }
