@@ -13,17 +13,14 @@
 			- if user_signed_in?
 				%ul.nav.navbar-nav.navbar-right
 					%li=link_to "글쓰기", new_post_path
-					%li=link_to current_user.email, edit_user_registration_path
+					%li.round-image-50= image_tag(current_user.avatar.url(:thumb))
+					%li=link_to current_user.name, edit_user_registration_path
 					%li=link_to "로그아웃", destroy_user_session_path, method: :delete
 			- else
 				%ul.nav.navbar-nav.navbar-right
 					%li=link_to "회원가입", new_user_registration_path
 					%li=link_to "로그인", new_user_session_path
 	.container
-		- flash.each do |key, value|
-			%div{:class => "alert alert-#{key} alert-dismissable"}
-				%button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
-				= value
-		- flash.each do |name, msg|
-			=content_tag :div, msg, class: "alert alert-info"
+		= render 'layouts/flash_messages'
+
 	= yield

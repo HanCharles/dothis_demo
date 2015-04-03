@@ -1,8 +1,19 @@
-= image_tag @post.image.url(:medium)
-%h1= @post.title
-%p= @post.description
-%p= @post.user.email
-
-= link_to "수정", edit_post_path
-= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }
-= link_to "뒤로가기", root_path
+#post_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
+			.panel-heading.post_image
+				= image_tag @post.image.url
+			.panel-body
+				%h1= @post.title
+				%p.description= @post.description
+			.panel-footer
+				.row
+					.col-md-6
+						%p.user
+						Submitted by
+						= @post.user.email
+					.col-md-6
+						.btn-group.pull-right
+							= link_to "수정", edit_post_path, class: "btn btn-default"
+							= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }, class: "btn btn-default"
+							= link_to "뒤로가기", root_path

@@ -4,6 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :avatar, input_html: { class: 'form-control' } %>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -13,6 +14,13 @@
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+
+    <%= f.input :name, autofocus: true %>
+    <%= f.label :is_female, "성별" %> <br />
+    <%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %> <br />
+    <%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> <br />
+    <%= f.label :date_of_birth, "생년월일" %> <br />
+    <%= f.date_select :date_of_birth %> <br />
   </div>
 
   <div class="form-actions">

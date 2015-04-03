@@ -4,13 +4,13 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'c97af81b9d74dcca6c10f00364c7902af2c54e0652844a463e97e0cc7c1165e415b35e6c3de3bc04609bef895ac01b56d7a559bf7979f8ae0d855f9ee0965d8c'
+  config.secret_key = 'c97af81b9d74dcca6c10f00364c7902af2c54e0652844a463e97e0cc7c1165e415b35e6c3de3bc04609bef895ac01b56d7a559bf7979f8ae0d855f9ee0965d8c'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'dothis_contact@custombyme.co.kr'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -205,7 +205,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
