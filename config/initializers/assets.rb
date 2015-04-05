@@ -9,3 +9,8 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( fancybox.png )
+Rails.application.config.assets.precompile += %w( blank.gif )
+Rails.application.config.assets.precompile += %w( fancybox-x.png )
+Rails.application.config.assets.precompile += %w( fancybox-y.png )
+Rails.application.config.assets.precompile += %w( fancy_*.png )

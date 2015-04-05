@@ -11,8 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
 //= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+jQuery(function() {
+  $("a.fancybox").fancybox();
+});
