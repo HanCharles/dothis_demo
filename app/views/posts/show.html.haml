@@ -5,7 +5,7 @@
 				= image_tag @post.image.url
 			.panel-body
 				%h1= @post.title
-				%p.description= @post.description
+				%p.description= @post.description.html_safe
 			.panel-footer
 				.row
 					.col-md-6

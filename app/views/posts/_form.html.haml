@@ -15,6 +15,6 @@
     = form.input :title, input_html: { class: 'form-control' }
 
   .form-group
-    = form.input :description, input_html: { class: 'form-control' }
+    = form.cktext_area :description, rows: 200, input_html: { class: 'form-control' }
 
   = form.button :submit, class: "btn btn-primary"

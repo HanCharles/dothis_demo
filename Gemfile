@@ -32,6 +32,7 @@ gem 'paperclip', '~> 4.2.1'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'fancybox-rails', '~> 0.2.1'
+gem 'ckeditor', '~> 4.1.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

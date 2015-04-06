@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+//= require ckeditor/init
 
 jQuery(function() {
   $("a.fancybox").fancybox();

@@ -13,8 +13,9 @@
 			- if user_signed_in?
 				%ul.nav.navbar-nav.navbar-right
 					%li=link_to "글쓰기", new_post_path
-					%li.round-image-50= image_tag(current_user.avatar.url(:thumb))
+					%li.round-image-50=image_tag(current_user.avatar.url(:thumb))
 					%li=link_to current_user.name, edit_user_registration_path
+					%li=link_to "프로필 수정", edit_user_registration_path
 					%li=link_to "로그아웃", destroy_user_session_path, method: :delete
 			- else
 				%ul.nav.navbar-nav.navbar-right
