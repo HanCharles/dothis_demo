@@ -3,7 +3,19 @@
 		.box.panel.panel-default
 			= link_to (image_tag post.image.url), post, class:"fancybox"
 			.panel-body
-				%h2= post.title
-				%p.user
-				= post.user.name
-				%p.round-image-50= image_tag(post.user.avatar.url(:thumb))
+				.title
+					%h2= post.title
+				.data.clearfix
+					.author-info
+						%p.user
+							%span
+								= post.user.name
+							%span
+								%p.round-image-50= image_tag(post.user.avatar.url(:thumb))
+					%p.buttons
+						%span
+							%i.fa.fa-comments-o
+							/ = post.comments.count
+						%span
+							%i.fa.fa-thumbs-o-up
+							= post.get_likes.size
