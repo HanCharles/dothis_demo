@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "posts#upvote"
     end
+    resources :comments, only: [:create, :edit, :destroy]
   end
 
   get 'users/:id' => 'users#show', as: :user

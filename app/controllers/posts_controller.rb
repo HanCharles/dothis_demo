@@ -3,10 +3,11 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@posts = Post.all.order("created_at DESC")
+		@posts = Post.all.order("RANDOM()")
 	end
 
 	def show
+		@comments = Comment.where(post_id: @post)
 	end
 
 	def new
@@ -24,6 +25,10 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@post = Post.find(params[:id])
+		if @post.user_id != session[:user_id]
+			redirect_to :back, notice: "수정 권한이 없습니다."
+		end
 	end
 
 	def update
@@ -35,8 +40,12 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@post.destroy
-		redirect_to root_path
+		if @post.user_id == session[:user_id]
+			@post.destroy
+			redirect_to root_path, notice: "포스트가 성공적으로 삭제되었습니다."
+		else
+			redirect_to :back, notice: "삭제 권한이 없습니다."
+		end
 	end
 
 	def upvote

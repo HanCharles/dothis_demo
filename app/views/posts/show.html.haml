@@ -10,8 +10,11 @@
 				.row
 					.col-md-6
 						%p.user
-						Submitted by
-						= @post.user.email
+						.round-image-thumb= image_tag(@post.user.avatar.url(:thumb))
+						- if @post.user.name
+							= link_to @post.user.name, @post.user
+						- else
+							= link_to "DoThis Man", @post.user
 					.col-md-6
 						.btn-group.pull-right
 							= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
@@ -21,3 +24,14 @@
 								= link_to "수정", edit_post_path, class: "btn btn-default"
 								= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }, class: "btn btn-default"
 							= link_to "뒤로가기", root_path, class: "btn btn-default"
+			#comments
+				%h2.comment_count
+				댓글 수
+				= @post.comments.count
+				- @comments.each do |comment|
+					.comment
+						.round-image-thumb= image_tag(comment.user.avatar.url(:thumb))
+						%p.username= comment.user.name
+						%p.content= comment.content
+
+				= render 'comments/comments'

@@ -1,0 +1,56 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+/*#comments {
+	padding-bottom: 4rem;
+	width: 100%;
+	.comment_count {
+		border-bottom: 1px solid red;
+		padding-bottom: .5rem;
+		margin-bottom: 0;
+	}
+	.comment {
+		padding: 2rem 0;
+		border-bottom: 1px solid red;
+		padding-left: 5%;
+		.username {
+			font-size: 1.3rem;
+			color: #333233;
+			margin: 0 0 .5rem 0;
+		}
+		.content {
+			margin: 0;
+			color: #969696;
+		}
+	}
+	.comment_content {
+		margin-top: 2.5rem;
+		textarea {
+			width: 100%;
+			margin: 1rem 0;
+			min-height: 150px;
+			border: 1px solid #E4E4E4;
+			background: #F8F9FA;
+			border-radius: 0.3rem;
+		}
+	}
+}*/
+
+.comments {
+  border:1px solid #eaeaea;
+  border-radius: 5px;
+  background-color: #ededed;
+  margin:1em 0;
+  padding:1em;
+  h2 {
+    margin:0 0 .5em;
+  }
+  ul {
+    padding-left: 1.5em;
+    li {
+      margin-bottom: .5em
+    }
+  }
+}
