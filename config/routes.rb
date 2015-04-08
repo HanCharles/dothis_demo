@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
+  
   resources :posts do
     member do
       put "like", to: "posts#upvote"
     end
   end
+
+  get 'users/:id' => 'users#show', as: :user
 
   root "posts#index"
   # The priority is based upon order of creation: first created -> highest priority.

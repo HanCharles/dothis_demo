@@ -1,3 +1,9 @@
+#userProfile
+	.round-image-profile= image_tag(@user.avatar.url(:medium))
+	- if @user.name
+		%h2= @user.name
+	- else
+		%h2 DoThis Man
 #posts.transitions-enabled
 	- @posts.each do |post|
 		.box.panel.panel-default
@@ -9,10 +15,7 @@
 					.author-info
 						%p.user
 							%span
-								-if post.user.name
-									= link_to post.user.name, post.user
-								- else
-									= link_to "DoThis Man", post.user
+								= link_to post.user.name, post.user
 							%span
 								%p.round-image-thumb= image_tag(post.user.avatar.url(:thumb))
 					%p.buttons
