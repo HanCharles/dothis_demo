@@ -15,7 +15,10 @@
 					.author-info
 						%p.user
 							%span
-								= link_to post.user.name, post.user
+								- if post.user.name
+									= link_to post.user.name, post.user
+								- else
+									= link_to "DoThis Man", post.user
 							%span
 								%p.round-image-thumb= image_tag(post.user.avatar.url(:thumb))
 					%p.buttons

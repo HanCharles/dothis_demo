@@ -3,7 +3,11 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@posts = Post.all.order("RANDOM()")
+		if params[:tag]
+			@posts = Post.tagged_with(params[:tag]).all.order("RANDOM()")
+		else
+			@posts = Post.all.order("RANDOM()")
+		end
 	end
 
 	def show
@@ -26,7 +30,7 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
-		if @post.user_id != session[:user_id]
+		if @post.user_id != current_user.id
 			redirect_to :back, notice: "수정 권한이 없습니다."
 		end
 	end
@@ -40,7 +44,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		if @post.user_id == session[:user_id]
+		if @post.user_id == current_user.id
 			@post.destroy
 			redirect_to root_path, notice: "포스트가 성공적으로 삭제되었습니다."
 		else
@@ -56,7 +60,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :description, :image)
+		params.require(:post).permit(:title, :description, :image, :tag_list_fixed)
 	end
 
 	def find_post

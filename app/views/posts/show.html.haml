@@ -6,6 +6,9 @@
 			.panel-body
 				%h1= @post.title
 				%p.description= @post.description.html_safe
+			.panel-tag
+				- if @post.tag_list.size > 0
+					.tag_list= fa_icon('tags') + " " + tag_icons(@post.tag_list)
 			.panel-footer
 				.row
 					.col-md-6

@@ -164,6 +164,7 @@ header {
     .panel-heading {
         padding: 0;
     }
+    
     .post_image {
         img {
             max-width: 100%;
@@ -172,6 +173,7 @@ header {
             margin: 0 auto;
         }
     }
+    
     .panel-body {
         padding: 35px;
         h1 {
@@ -183,6 +185,17 @@ header {
             margin: 0;
         }
     }
+
+    .panel-tag {
+        padding: 20px 35px;
+        p {
+            margin: 0;
+        }
+        .tag_list {
+            margin-bottom: .5em;
+        }
+    }
+
     .panel-footer {
         padding: 20px 35px;
         p {
@@ -193,6 +206,19 @@ header {
         }
         border-bottom: 1px solid red;
     }
+}
+
+a.tag {
+  border:1px solid #eaeaea;
+  border-radius:3px;
+  background-color: #f4f4f4;
+  padding:.1em .2em;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #265484;
+    border:1px solid #265484;
+  }
 }
 
 textarea {

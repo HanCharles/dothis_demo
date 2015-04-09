@@ -9,10 +9,13 @@
           %li= msg
 
   .form-group
-    = form.input :image, input_html: { class: 'form-control' }
+    = form.input :image, placeholder: '대표 사진을 첨부하세요.', input_html: { class: 'form-control' }
 
   .form-group
     = form.input :title, input_html: { class: 'form-control' }
+
+  .form-group
+    = form.input :tag_list_fixed, placeholder: '하나 이상의 태그는 콤마(,)로 구분하여 입력하세요.', input_html: { class: 'form-control' }
 
   .form-group
     = form.cktext_area :description, rows: 200, input_html: { class: 'form-control' }
