@@ -20,6 +20,23 @@
 @import "bootstrap";
 @import "font-awesome.css";
 
+#notice_wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1031;
+    background: rgba(135,216,211,0.85);
+    p {
+        padding: 2.75rem 0;
+        text-align: center;
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        letter-spacing: 1px;
+    }
+}
+
 .round-image-thumb {
     background-color: white;
     border: 1px solid #d9d9d9;

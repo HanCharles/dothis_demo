@@ -1,3 +1,9 @@
+- if notice
+	#notice_wrapper
+		%p.notice= notice
+- elsif alert
+	#notice_wrapper
+		%p.alert= alert
 %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
 	.container
 		.navbar-header
