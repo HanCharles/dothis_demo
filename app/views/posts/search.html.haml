@@ -1,0 +1,24 @@
+#posts.transitions-enabled
+	- @posts.each do |post|
+		.box.panel.panel-default
+			= link_to (image_tag post.image.url), post, class:"fancybox"
+			.panel-body
+				.title
+					%h2= post.title
+				.data.clearfix
+					.author-info
+						%p.user
+							%span
+								- if post.user.name
+									= link_to post.user.name, post.user
+								- else
+									= link_to "DoThis Man", post.user
+							%span
+								%p.round-image-thumb= image_tag(post.user.avatar.url(:thumb))
+					%p.buttons
+						%span
+							%i.fa.fa-comments-o
+							= post.comments.count
+						%span
+							%i.fa.fa-thumbs-o-up
+							= post.get_likes.size

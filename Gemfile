@@ -35,6 +35,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'fancybox-rails', '~> 0.2.1'
 gem 'ckeditor', '~> 4.1.1'
 gem 'acts-as-taggable-on', '~> 3.5.0'
+gem 'searchkick', '~> 0.8.7'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

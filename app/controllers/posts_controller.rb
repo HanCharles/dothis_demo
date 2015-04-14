@@ -2,6 +2,14 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
 	before_action :authenticate_user!, except: [:index, :show]
 
+	def search
+		if params[:search].present?
+			@posts = Post.search(params[:search])
+		else
+			@posts = Post.all.order("RANDOM()")
+		end
+	end
+
 	def index
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).all.order("RANDOM()")

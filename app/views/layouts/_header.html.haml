@@ -1,0 +1,32 @@
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+	.container
+		.navbar-header
+			%button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+				%span.sr-only Toggle navigation
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			.navbar-brand= link_to "DoThis", root_path
+
+		.collapse.navbar-collapse{:id => "bs-example-navbar-collapse-1"}
+			/ %form.navbar-form.navbar-left{:role => "search"}
+			/ 	.form-group
+			/ 		%input.form-control{:placeholder => "검색", :type => "text"}
+			/ 	%button.btn.btn-default{:type => "submit"} 검색
+			= form_tag search_posts_path, method: :get, class: "navbar-form navbar-left", role: "search" do
+				%p
+					= text_field_tag :search, params[:search], class: "form-control"
+					= submit_tag "검색", name: nil, class: "btn btn-default"
+			%ul.nav.navbar-nav.navbar-right
+				- if user_signed_in?
+					%li=link_to "글쓰기", new_post_path
+					%li.round-image-thumb=image_tag(current_user.avatar.url(:thumb))
+					- if current_user.name
+						%li=link_to current_user.name, current_user
+					- else
+						%li=link_to "DoThis Man", current_user
+					%li=link_to "프로필 수정", edit_user_registration_path
+					%li=link_to "로그아웃", destroy_user_session_path, method: :delete
+				- else
+					%li=link_to "회원가입", new_user_registration_path
+					%li=link_to "로그인", new_user_session_path

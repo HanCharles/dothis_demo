@@ -48,7 +48,7 @@ body {
 
 body {
     background: #E9E9E9;
-    padding-top: 60px;
+    padding-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -120,33 +120,68 @@ header {
     }
 }*/
 
-#posts {
-    margin: 0 auto;
-    width: 100%;
-    .box {
-        margin: 7px;
-        width:236px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-        border-radius: 15px;
-        text-align: center;
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px 15px 0px 0px;
-        }
-        h2 {
-            font-size: 22px;
-            margin: 0;
-            padding: 25px 10px;
-            a {
-                color: #474747;
+@media screen and (min-width: 750px) {
+    #posts {
+        margin: 0 auto;
+        width: 100%;
+        .box {
+            margin: 7px;
+            width:236px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+            border-radius: 15px;
+            text-align: center;
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 15px 15px 0px 0px;
+            }
+            h2 {
+                font-size: 22px;
+                margin: 0;
+                padding: 25px 10px;
+                a {
+                    color: #474747;
+                }
+            }
+            .user {
+                font-size: 15px;
+                border-top: 1px solid #EAEAEA;
+                padding: 15px;
+                margin: 0;
             }
         }
-        .user {
-            font-size: 15px;
-            border-top: 1px solid #EAEAEA;
-            padding: 15px;
-            margin: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #posts {
+        margin: 0 auto;
+        width: 100%;
+        .box {
+            margin: 7px;
+            width:158px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+            border-radius: 15px;
+            text-align: center;
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 15px 15px 0px 0px;
+            }
+            h2 {
+                font-size: 22px;
+                margin: 0;
+                padding: 25px 10px;
+                a {
+                    color: #474747;
+                }
+            }
+            .user {
+                font-size: 15px;
+                border-top: 1px solid #EAEAEA;
+                padding: 15px;
+                margin: 0;
+            }
         }
     }
 }
