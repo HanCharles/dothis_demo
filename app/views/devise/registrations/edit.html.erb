@@ -11,10 +11,11 @@
 
           <div class="form-inputs">
             <%= f.input :avatar, input_html: { class: 'form-control' } %>
+          </div>
 
           <div class="form-group">
             <%= f.label :닉네임 %><br />
-            <%= f.email_field :name, required: true, autofocus: true, class: "form-control" %>
+            <%= f.input :name, required: true, autofocus: true, class: "form-control" %>
           </div>
 
           <div class="form-group">
@@ -52,6 +53,14 @@
           <div class="form-group">
             <%= f.label :date_of_birth, "생년월일" %> <br />
             <%= f.date_select :date_of_birth, class: "form-control" %> <br />
+          </div>
+
+          <div class="form-group">
+            <%= f.input :professional_field, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :homepage_url, class: "form-control" %>
           </div>
 
           <div class="form-group">

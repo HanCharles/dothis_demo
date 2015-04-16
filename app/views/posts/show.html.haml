@@ -2,7 +2,7 @@
 	.col-md-8.col-md-offset-2
 		.panel.panel-default
 			.panel-heading.post_image
-				= image_tag @post.image.url
+				= image_tag @post.image.url(:medium)
 			.panel-body
 				%h1= @post.title
 				%p.description= @post.description.html_safe

@@ -6,25 +6,51 @@
 		%h2 DoThis Man
 #posts.transitions-enabled
 	- @posts.each do |post|
-		.box.panel.panel-default
-			= link_to (image_tag post.image.url), post, class:"fancybox"
-			.panel-body
-				.title
-					%h2= post.title
-				.data.clearfix
-					.author-info
-						%p.user
-							%span
-								- if post.user.name
-									= link_to post.user.name, post.user
-								- else
-									= link_to "DoThis Man", post.user
-							%span
-								%p.round-image-thumb= image_tag(post.user.avatar.url(:thumb))
-					%p.buttons
-						%span
-							%i.fa.fa-comments-o
-							/ = post.comments.count
-						%span
+		- if post.is_sale?
+			.box.panel.panel-default
+				= link_to (image_tag post.image.url, class: "sale"), post#, class:"fancybox"
+				.saletype
+					.price
+						&#8361
+						= post.price
+					.description
+						.title
+							= post.title
+							%br
+							&#8361
+							= post.price
+						.like
 							%i.fa.fa-thumbs-o-up
 							= post.get_likes.size
+					.author
+						.author_thumb
+							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+						.author_name
+							- if post.user.name
+								= link_to post.user.name, post.user
+							- else
+								= link_to post.user.email, post.user
+						.author_info
+							= post.user.professional_field
+		- else
+			.box.panel.panel-default
+				.storytype
+					= link_to (image_tag post.image.url, class: "story"), post#, class:"fancybox"
+					.description
+						.title
+							= post.title
+						.like
+							%i.fa.fa-thumbs-o-up
+							= post.get_likes.size
+						.content
+							= post.description.html_safe
+					.author
+						.author_thumb
+							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+						.author_name
+							- if post.user.name
+								= link_to post.user.name, post.user
+							- else
+								= link_to post.user.email, post.user
+						.author_info
+							= post.user.professional_field

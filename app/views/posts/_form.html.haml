@@ -18,6 +18,13 @@
     = form.input :tag_list_fixed, placeholder: '하나 이상의 태그는 콤마(,)로 구분하여 입력하세요.', input_html: { class: 'form-control' }
 
   .form-group
+    = form.label :is_sale, "판매 중?"
+    = form.check_box :is_sale
+
+  .form-group
+    = form.input :price, input_html: { class: 'form-control' }
+
+  .form-group
     = form.cktext_area :description, rows: 200, input_html: { class: 'form-control' }
 
   = form.button :submit, class: "btn btn-primary"

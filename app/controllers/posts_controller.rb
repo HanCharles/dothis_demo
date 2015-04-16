@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).all.order("RANDOM()")
 		else
-			@posts = Post.all.order("RANDOM()")
+			@posts = Post.all.order("created_at DESC")
 		end
 	end
 
@@ -68,7 +68,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :description, :image, :tag_list_fixed)
+		params.require(:post).permit(:title, :description, :image, :tag_list_fixed, :is_sale, :price)
 	end
 
 	def find_post

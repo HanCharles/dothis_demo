@@ -1,31 +1,3 @@
-- if params[:tag]
-	%h2
-	"
-	= params[:tag]
-	" 으로 태그된 글 :
-	= @posts.size
-	개
-#posts.transitions-enabled
-	- @posts.each do |post|
-		.box.panel.panel-default
-			= link_to (image_tag post.image.url), post, class:"fancybox"
-			.panel-body
-				.title
-					%h2= post.title
-				.data.clearfix
-					.author-info
-						%p.user
-							%span
-								- if post.user.name
-									= link_to post.user.name, post.user
-								- else
-									= link_to "DoThis Man", post.user
-							%span
-								%p.round-image-thumb= image_tag(post.user.avatar.url(:thumb))
-					%p.buttons
-						%span
-							%i.fa.fa-comments-o
-							= post.comments.count
-						%span
-							%i.fa.fa-thumbs-o-up
-							= post.get_likes.size
+#category
+	= link_to image_tag("category_on.png", size: "50x50"), root_path
+= render 'all'
