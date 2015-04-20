@@ -4,7 +4,7 @@
 		%h2= @user.name
 	- else
 		%h2 DoThis Man
-#posts.transitions-enabled
+.posts.transitions-enabled
 	- @posts.each do |post|
 		- if post.is_sale?
 			.box.panel.panel-default

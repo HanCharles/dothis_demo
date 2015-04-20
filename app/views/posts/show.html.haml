@@ -1,40 +1,86 @@
-#post_show.row
-	.col-md-8.col-md-offset-2
-		.panel.panel-default
-			.panel-heading.post_image
-				= image_tag @post.image.url(:medium)
-			.panel-body
-				%h1= @post.title
-				%p.description= @post.description.html_safe
-			.panel-tag
-				- if @post.tag_list.size > 0
-					.tag_list= fa_icon('tags') + " " + tag_icons(@post.tag_list)
-			.panel-footer
-				.row
-					.col-md-6
-						%p.user
-						.round-image-thumb= image_tag(@post.user.avatar.url(:thumb))
-						- if @post.user.name
-							= link_to @post.user.name, @post.user
-						- else
-							= link_to "DoThis Man", @post.user
-					.col-md-6
-						.btn-group.pull-right
-							= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
-								%span.glyphicon.glyphicon-heart
-									= @post.get_upvotes.size
-							- if user_signed_in?
-								= link_to "수정", edit_post_path, class: "btn btn-default"
-								= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }, class: "btn btn-default"
-							= link_to "뒤로가기", root_path, class: "btn btn-default"
-			#comments
-				%h2.comment_count
-				댓글 수
-				= @post.comments.count
-				- @comments.each do |comment|
-					.comment
-						.round-image-thumb= image_tag(comment.user.avatar.url(:thumb))
-						%p.username= comment.user.name
-						%p.content= comment.content
+#post_show
+	.post_heading
+		.like
+			= @post.get_upvotes.size
+			= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
+				%span.glyphicon.glyphicon-heart
+		.title
+			= @post.title
+		.author
+			.author_thumb
+				= image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb")
+			.author_name
+				- if @post.user.name
+					= link_to @post.user.name, @post.user
+				- else
+					= link_to @post.user.email, @post.user
+			.author_info
+				= @post.user.professional_field
+	.post_body
+		%p.description= @post.description.html_safe
+	.post_tag
+		- if @post.tag_list.size > 0
+			.tag_list= fa_icon('tags') + " " + tag_icons(@post.tag_list)
+	.post_footer
+		- if user_signed_in?
+			= link_to "수정", edit_post_path, class: "btn btn-default"
+			= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }, class: "btn btn-default"
+		= link_to "뒤로가기", root_path, class: "btn btn-default"
+	.post_comments
+		= render 'comments/comments'
 
-				= render 'comments/comments'
+	.releated_posts
+		%h2 이런 상품을 찾으셨나요?
+		.posts.transitions-enabled
+			- @posts_sale.each do |post|
+				- if post.id != @post.id
+					.box.panel.panel-default
+						= link_to (image_tag post.image.url, class: "sale"), post#, class:"fancybox"
+						.saletype
+							.price
+								&#8361
+								= post.price
+							.description
+								.title
+									= post.title
+									%br
+									&#8361
+									= post.price
+								.like
+									%i.fa.fa-thumbs-o-up
+									= post.get_likes.size
+							.author
+								.author_thumb
+									= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+								.author_name
+									- if post.user.name
+										= link_to post.user.name, post.user
+									- else
+										= link_to post.user.email, post.user
+								.author_info
+									= post.user.professional_field
+		%h2 이런 이야기를 찾으셨나요?
+		.posts.transitions-enabled
+			- @posts_story.each do |post|
+				- if post.id != @post.id
+					.box.panel.panel-default
+						.storytype
+							= link_to (image_tag post.image.url, class: "story"), post#, class:"fancybox"
+							.description
+								.title
+									= post.title
+								.like
+									%i.fa.fa-thumbs-o-up
+									= post.get_likes.size
+								.content
+									= post.description.html_safe
+							.author
+								.author_thumb
+									= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+								.author_name
+									- if post.user.name
+										= link_to post.user.name, post.user
+									- else
+										= link_to post.user.email, post.user
+								.author_info
+									= post.user.professional_field

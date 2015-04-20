@@ -2,6 +2,6 @@
 %div{:id => "comments_form_#{@post.id}"}
 	= simple_form_for([@post, @post.comments.build], remote: true ) do |f|
 		.form-inputs
-			= f.input :content, label: "댓글", placeholder: '댓글 쓰기',  input_html: { rows: 5 }
+			= f.input :content, label: "댓글", placeholder: '댓글 쓰기', input_html: { rows: 2 }
 		.form-actions
 			= f.button :submit

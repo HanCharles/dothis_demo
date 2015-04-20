@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/:id' => 'users#show', as: :user
+  # get "posts/:filter" => "sales_type#show", as: :sales_type
 
   root "posts#index"
   # The priority is based upon order of creation: first created -> highest priority.

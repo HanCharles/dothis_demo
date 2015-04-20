@@ -14,12 +14,14 @@ class PostsController < ApplicationController
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).all.order("RANDOM()")
 		else
-			@posts = Post.all.order("created_at DESC")
+			@posts = Post.all.order("RANDOM()")
 		end
 	end
 
 	def show
 		@comments = Comment.where(post_id: @post)
+		@posts_story = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: false)
+		@posts_sale = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: true)
 	end
 
 	def new
