@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-	searchkick
 	acts_as_votable
 	acts_as_taggable
 	belongs_to :user
@@ -14,5 +13,9 @@ class Post < ActiveRecord::Base
 
 	def tag_list_fixed=(tag_list_string)
 		self.tag_list = tag_list_string
+	end
+
+	def self.search(query)
+		where("title like ?", "%#{query}%")
 	end
 end
