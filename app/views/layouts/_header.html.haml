@@ -26,7 +26,7 @@
 					- if current_user.name
 						%li=link_to current_user.name, current_user
 					- else
-						%li=link_to "DoThis Man", current_user
+						%li=link_to "DoThis", current_user
 					%li=link_to "프로필 수정", edit_user_registration_path
 					%li=link_to "로그아웃", destroy_user_session_path, method: :delete
 				- else
