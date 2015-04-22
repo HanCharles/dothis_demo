@@ -130,8 +130,11 @@ nav {
 
 .navbar-right {
     li > a{
-       height: 40px;
-       padding: 10px;
+        height: 40px;
+        padding: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     height: 80px;
     margin: 0;
@@ -438,62 +441,168 @@ header {
     width: 1050px;
     margin: 0;
 
-    .post_heading {
-        /*border: 1px solid red;*/
-        border-bottom: 3px solid #00FFDA;
-        padding: 10px;
-        height: 120px;
-        color: white;
-        background: #303030;
-        position: relative;
-        .like {
-            width: 100%;
-            color: white;
-            font-size: 15px;
-            margin: 0;
-            text-align: right;
-        }
-        .title {
+    .sale_type {
+        .post_heading {
             /*border: 1px solid red;*/
-            width: 80%;
-            height: 70px;
-            padding: 20px 0 0 20px;
-            font-size: 30px;
-            font-weight: bold;
-            float: left;
-        }
-        .author {
-            /*border: 1px solid red;*/
-            color: white;
-            text-align: left;
-            margin: 0;
-            width: 20%;
-            height: 70px;
-            padding: 10px 0 10px 15px;
-            float: right;
-            .author_thumb {
-                width: 50px;
-                height: 50px;
+            padding: 10px 10px 10px 20px;
+            height: 120px;
+            color: #00FFDA;
+            background: #04163F;
+            position: relative;
+            .buy_btn {
+                /*border: 1px solid red;*/
                 float: left;
-                margin-right: 10px;
-            }
-            .author_name {
-                padding-top: 10px;
-                height: 25px;
-                line-height: 10px;
-                font-size: 15px;
+                background-color: #00FFDA;
+                color: #04163F;
+                border-radius: 50px;
+                -moz-border-radius: 50px;
+                -webkit-border-radius: 50px;
+                height: 100px;
+                width: 100px;
+                overflow: hidden;
+                text-align: center;
                 font-weight: bold;
-                a {
-                    color: white;
+                font-size: 20px;
+                line-height: 100px;
+            }
+            .description {
+                float: left;
+                width: 50%;
+                .title {
+                    /*border: 1px solid red;*/
+                    padding: 25px 0 0 20px;
+                    font-size: 22px;
+                    /*font-weight: bold;*/
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .price {
+                    /*border: 1px solid red;*/
+                    font-size: 30px;
+                    padding: 0 0 0 20px;
+                    text-align: left;
                 }
             }
-            .author_info {
-                height: 25px;
-                font-size: 12px;
+            .heading_right {
+                float: right;
+                .like {
+                    /*border: 1px solid red;*/
+                    color: white;
+                    font-size: 15px;
+                    margin: 0;
+                    text-align: right;
+                }
+                .author {
+                    /*border: 1px solid red;*/
+                    color: white;
+                    text-align: left;
+                    margin: 0;
+                    width: auto;
+                    min-width: 200px;
+                    height: 70px;
+                    padding: 10px 0 10px 15px;
+                    float: right;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    .author_thumb {
+                        width: 50px;
+                        height: 50px;
+                        float: left;
+                        margin-right: 10px;
+                    }
+                    .author_name {
+                        padding-top: 10px;
+                        height: 25px;
+                        line-height: 10px;
+                        font-size: 15px;
+                        font-weight: bold;
+                        a {
+                            color: white;
+                        }
+                    }
+                    .author_info {
+                        height: 25px;
+                        font-size: 12px;
+                    }
+                }
             }
         }
+        .arrow-down {
+            width: 0;
+            height: 0;
+            margin-left: 50px;
+            
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #04163F;
+        }
     }
-    
+    .story_type {
+        .post_heading {
+            /*border: 1px solid red;*/
+            border-bottom: 3px solid #00FFDA;
+            padding: 10px;
+            height: 120px;
+            color: white;
+            background: #303030;
+            position: relative;
+            .like {
+                width: 100%;
+                color: white;
+                font-size: 15px;
+                margin: 0;
+                text-align: right;
+            }
+            .title {
+                /*border: 1px solid red;*/
+                width: 70%;
+                height: 70px;
+                padding: 20px 0 0 20px;
+                font-size: 30px;
+                font-weight: bold;
+                float: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .author {
+                /*border: 1px solid red;*/
+                color: white;
+                text-align: left;
+                margin: 0;
+                width: auto;
+                min-width: 200px;
+                height: 70px;
+                padding: 10px 0 10px 15px;
+                float: right;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                .author_thumb {
+                    width: 50px;
+                    height: 50px;
+                    float: left;
+                    margin-right: 10px;
+                }
+                .author_name {
+                    padding-top: 10px;
+                    height: 25px;
+                    line-height: 10px;
+                    font-size: 15px;
+                    font-weight: bold;
+                    a {
+                        color: white;
+                    }
+                }
+                .author_info {
+                    height: 25px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }  
     .post_body {
         /*border: 1px solid red;*/
         padding: 35px;

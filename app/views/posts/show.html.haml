@@ -1,21 +1,51 @@
+= render 'layouts/fancybox'
 #post_show
-	.post_heading
-		.like
-			= @post.get_upvotes.size
-			= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
-				%span.glyphicon.glyphicon-heart
-		.title
-			= @post.title
-		.author
-			.author_thumb
-				= image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb")
-			.author_name
-				- if @post.user.name
-					= link_to @post.user.name, @post.user
-				- else
-					= link_to @post.user.email, @post.user
-			.author_info
-				= @post.user.professional_field
+	- if @post.is_sale?
+		.sale_type
+			.post_heading
+				%span.buy_btn
+					구매하기
+				%span.description
+					.title
+						= @post.title
+					.price
+						&#8361
+						= @post.price
+				%span.heading_right
+					.like
+						= @post.get_upvotes.size
+						= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
+							%span.glyphicon.glyphicon-heart
+					.author
+						.author_thumb
+							= image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb")
+						.author_name
+							- if @post.user.name
+								= link_to @post.user.name, @post.user
+							- else
+								= link_to @post.user.email, @post.user
+						.author_info
+							= @post.user.professional_field
+			.arrow-down
+	- else
+		.story_type
+			.post_heading
+				.like
+					= @post.get_upvotes.size
+					= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
+						%span.glyphicon.glyphicon-heart
+				.title
+					= @post.title
+				.author
+					.author_thumb
+						= image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb")
+					.author_name
+						- if @post.user.name
+							= link_to @post.user.name, @post.user
+						- else
+							= link_to @post.user.email, @post.user
+					.author_info
+						= @post.user.professional_field
 	.post_body
 		%p.description= @post.description.html_safe
 	.post_tag
@@ -23,7 +53,7 @@
 			.tag_list= fa_icon('tags') + " " + tag_icons(@post.tag_list)
 	.post_footer
 		- if user_signed_in?
-			= link_to "수정", edit_post_path, class: "btn btn-default"
+			= link_to "수정", edit_post_path, class: "fancybox btn btn-default"
 			= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }, class: "btn btn-default"
 		= link_to "뒤로가기", root_path, class: "btn btn-default"
 	.post_comments

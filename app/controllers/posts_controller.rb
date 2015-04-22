@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 		@comments = Comment.where(post_id: @post)
 		@posts_story = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: false)
 		@posts_sale = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: true)
-		render layout: 'fancybox'
+		# render layout: 'fancybox'
 	end
 
 	def new
@@ -34,6 +34,7 @@ class PostsController < ApplicationController
 
 		if @post.save
 			redirect_to @post, notice: "성공적으로 포스트가 작성되었습니다."
+			# render layout: 'fancybox'
 		else
 			render 'new'
 		end
