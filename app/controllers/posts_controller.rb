@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 		@comments = Comment.where(post_id: @post)
 		@posts_story = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: false)
 		@posts_sale = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: true)
+		render layout: 'fancybox'
 	end
 
 	def new

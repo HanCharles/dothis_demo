@@ -20,7 +20,11 @@
 //= require ckeditor/init
 
 jQuery(function() {
-  $("a.fancybox").fancybox();
+	$("a.fancybox").fancybox({
+		padding: 0,
+		parent: 'body',
+		type: 'ajax'
+	});
 });
 
 $(document).ready(function() {
