@@ -14,8 +14,7 @@
 			- else
 				DoThis
 			님의 작품
-.arrow-down
-%br
+	= image_tag "/images/user_arrow.png", class: "user_arrow"
 .posts.transitions-enabled
 	- @posts.each do |post|
 		- if post.is_sale?

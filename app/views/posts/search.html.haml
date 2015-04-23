@@ -1,8 +1,8 @@
-#posts.transitions-enabled
+.posts.transitions-enabled
 	- @posts.each do |post|
 		- if post.is_sale?
 			.box.panel.panel-default
-				= link_to (image_tag post.image.url, class: "sale"), post, class:"fancybox"
+				= link_to (image_tag post.image.url, class: "sale"), post, class: 'fancybox'
 				.saletype
 					.price
 						&#8361
@@ -14,7 +14,7 @@
 							&#8361
 							= post.price
 						.like
-							%i.fa.fa-thumbs-o-up
+							%i.glyphicon.glyphicon-heart
 							= post.get_likes.size
 					.author
 						.author_thumb
@@ -29,12 +29,12 @@
 		- else
 			.box.panel.panel-default
 				.storytype
-					= link_to (image_tag post.image.url, class: "story"), post, class:"fancybox"
+					= link_to (image_tag post.image.url, class: "story"), post, class: 'fancybox'
 					.description
 						.title
 							= post.title
 						.like
-							%i.fa.fa-thumbs-o-up
+							%i.glyphicon.glyphicon-heart
 							= post.get_likes.size
 						/ .content
 						/ 	= post.description.html_safe

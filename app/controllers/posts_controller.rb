@@ -20,8 +20,16 @@ class PostsController < ApplicationController
 
 	def show
 		@comments = Comment.where(post_id: @post)
-		@posts_story = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: false)
-		@posts_sale = Post.tagged_with(@post.tag_list_fixed).all.where(is_sale: true)
+		posts_story = []
+		posts_sale = []
+		@post.tag_list.each do |tag|
+			story = Post.tagged_with(tag).all.where(is_sale: false)
+			posts_story = posts_story << story
+			sale = Post.tagged_with(tag).all.where(is_sale: true)
+			posts_sale = posts_sale << sale
+		end
+		@posts_story = posts_story.flatten
+		@posts_sale = posts_sale.flatten
 		render layout: 'fancybox'
 	end
 
