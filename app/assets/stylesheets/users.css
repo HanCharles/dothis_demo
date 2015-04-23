@@ -19,17 +19,6 @@
 	img { width: 100% }
 }
 
-.arrow-down {
-	width: 0;
-	height: 0;
-	margin: auto;
-
-	border-left: 30px solid transparent;
-	border-right: 30px solid transparent;
-	border-top: 30px solid #303030;
-	border-radius: 5px;
-}
-
 #userProfile {
 	background-color: white;
 	margin: 0 auto;

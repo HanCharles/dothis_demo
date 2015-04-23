@@ -95,8 +95,6 @@ nav {
     .navbar-brand {
         height: 80px;
         a {
-            color: #FFFFFF;
-            font-weight: bold;
             &:hover {
                 text-decoration: none;
             }
@@ -115,26 +113,31 @@ nav {
 .navbar-form {
     margin-bottom: 0;
     .form-control {
-        width: 80%;
+        width: 90%;
         color: white;
         background-color: #04163F;
     }
 }
 
 .navbar-left {
-    width: 60%;
+    width: auto;
+    margin-right: 320px;
+    float: none !important;
     height: 80px;
-    margin: 0;
-    padding: 20px;
+    padding: 20px 0 0 60px;
 }
 
 .navbar-right {
-    li > a{
-        height: 40px;
+    span > a{
+        color: white;
+        text-decoration: none;
         padding: 10px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    span > a > img{
+        bottom: 20px;
     }
     height: 80px;
     margin: 0;
