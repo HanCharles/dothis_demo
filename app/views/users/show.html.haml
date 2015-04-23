@@ -1,9 +1,21 @@
 #userProfile
 	.round-image-profile= image_tag(@user.avatar.url(:medium))
-	- if @user.name
-		%h2= @user.name
-	- else
-		%h2 DoThis Man
+	.author_name_in_profile
+		- if @user.name
+			= @user.name
+		- else
+			DoThis
+	.author_intro
+		- if @user.intro
+			= @user.intro
+		- else
+			- if @user.name
+				= @user.name
+			- else
+				DoThis
+			님의 작품
+.arrow-down
+%br
 .posts.transitions-enabled
 	- @posts.each do |post|
 		- if post.is_sale?
