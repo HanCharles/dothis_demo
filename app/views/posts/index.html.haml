@@ -18,14 +18,14 @@
 							= post.get_likes.size
 					.author
 						.author_thumb
-							/= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
 						.author_name
-							/- if post.user.name
-							/	= link_to post.user.name, post.user
-							/- else
-							/	= link_to post.user.email, post.user
+							- if post.user.name
+								= link_to post.user.name, post.user
+							- else
+								= link_to post.user.email, post.user
 						.author_info
-							/= post.user.professional_field
+							= post.user.professional_field
 		- else
 			.box.panel.panel-default
 				.storytype
@@ -40,11 +40,11 @@
 						/ 	= post.description.html_safe
 					.author
 						.author_thumb
-							/ = image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
 						.author_name
-							/- if post.user.name
-							/	= link_to post.user.name, post.user
-							/- else
-							/	= link_to post.user.email, post.user
+							- if post.user.name
+								= link_to post.user.name, post.user
+							- else
+								= link_to post.user.email, post.user
 						.author_info
-							/= post.user.professional_field
+							= post.user.professional_field

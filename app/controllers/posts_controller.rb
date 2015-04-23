@@ -28,8 +28,8 @@ class PostsController < ApplicationController
 			sale = Post.tagged_with(tag).all.where(is_sale: true)
 			posts_sale = posts_sale << sale
 		end
-		@posts_story = posts_story.flatten
-		@posts_sale = posts_sale.flatten
+		@posts_story = posts_story.flatten.uniq
+		@posts_sale = posts_sale.flatten.uniq
 		render layout: 'fancybox'
 	end
 
