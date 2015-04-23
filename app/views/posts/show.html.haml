@@ -2,8 +2,8 @@
 	- if @post.is_sale?
 		.sale_type
 			.post_heading
-				%span.buy_btn
-					구매하기
+				%span
+					= link_to "구매하기", @post.sale_url, class: "buy_btn", :target => "_blank"
 				%span.description
 					.title
 						= @post.title

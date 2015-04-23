@@ -25,6 +25,9 @@
     = form.input :price, input_html: { class: 'form-control' }
 
   .form-group
+    = form.input :sale_url, input_html: { class: 'form-control' }
+
+  .form-group
     = form.cktext_area :description, rows: 200, input_html: { class: 'form-control' }
 
   = form.button :submit, class: "fancybox btn btn-primary"

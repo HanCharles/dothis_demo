@@ -20,7 +20,7 @@
 							&#8361
 							= post.price
 						.like
-							%i.fa.fa-thumbs-o-up
+							%i.glyphicon.glyphicon-heart
 							= post.get_likes.size
 					.author
 						.author_thumb
@@ -40,10 +40,10 @@
 						.title
 							= post.title
 						.like
-							%i.fa.fa-thumbs-o-up
+							%i.glyphicon.glyphicon-heart
 							= post.get_likes.size
-						.content
-							= post.description.html_safe
+						/ .content
+						/ 	= post.description.html_safe
 					.author
 						.author_thumb
 							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
