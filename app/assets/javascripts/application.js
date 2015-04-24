@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require fancybox
 //= require jquery_ujs
+//= require fancybox
 //= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require turbolinks
@@ -21,9 +21,9 @@
 
 jQuery(function() {
 	$("a.fancybox").fancybox({
-		padding: 0,
-		parent: 'body',
-		type: 'ajax'
+		padding: 0
+		// parent: 'body',
+		// type: 'ajax',
 	});
 });
 
