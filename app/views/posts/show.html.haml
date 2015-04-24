@@ -47,6 +47,9 @@
 						= @post.user.professional_field
 	.post_body
 		%p.description= @post.description.html_safe
+		- if @post.is_sale?
+			= image_tag "/images/sale_detail_format.png"
+			%p.description= @post.sale_detail.html_safe
 	.post_tag
 		- if @post.tag_list.size > 0
 			.tag_list= fa_icon('tags') + " " + tag_icons(@post.tag_list)

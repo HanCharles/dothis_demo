@@ -28,6 +28,11 @@
     = form.input :sale_url, input_html: { class: 'form-control' }
 
   .form-group
-    = form.cktext_area :description, rows: 200, input_html: { class: 'form-control' }
+    = form.label :description, "스토리 및 상품 작성"
+    = form.cktext_area :description, rows: 500, input_html: { class: 'form-control' }
+
+  .form-group
+    = form.label :sale_detail, "상품 세부 정보 작성"
+    = form.cktext_area :sale_detail, rows: 500, input_html: { class: 'form-control' }
 
   = form.button :submit, class: "fancybox btn btn-primary"
