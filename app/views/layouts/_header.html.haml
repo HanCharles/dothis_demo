@@ -26,8 +26,8 @@
 					%span=link_to "프로필 수정", edit_user_registration_path
 					%span=link_to "로그아웃", destroy_user_session_path, method: :delete
 				- else
-					%li=link_to "회원가입", new_user_registration_path
-					%li=link_to "로그인", new_user_session_path
+					%span=link_to "회원가입", new_user_registration_path
+					%span=link_to "로그인", new_user_session_path
 			= form_tag search_posts_path, method: :get, class: "navbar-form navbar-left", role: "search" do
 				= text_field_tag :search, params[:search], class: "form-control"
 				/ = submit_tag "검색", name: nil, class: "btn btn-default"

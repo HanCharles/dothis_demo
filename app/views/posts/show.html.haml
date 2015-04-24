@@ -1,4 +1,4 @@
-#post_show
+.post_show
 	- if @post.is_sale?
 		.sale_type
 			.post_heading
@@ -64,7 +64,7 @@
 			- @posts_sale.each do |post|
 				- if post.id != @post.id
 					.box.panel.panel-default
-						= link_to (image_tag post.image.url, class: "sale"), post, class:"fancybox"
+						= link_to (image_tag post.image.url, class: "sale"), post, class: 'fancybox'
 						.saletype
 							.price
 								&#8361
@@ -76,7 +76,7 @@
 									&#8361
 									= post.price
 								.like
-									%i.fa.fa-thumbs-o-up
+									%i.glyphicon.glyphicon-heart
 									= post.get_likes.size
 							.author
 								.author_thumb
@@ -94,15 +94,15 @@
 				- if post.id != @post.id
 					.box.panel.panel-default
 						.storytype
-							= link_to (image_tag post.image.url, class: "story"), post, class:"fancybox"
+							= link_to (image_tag post.image.url, class: "story"), post, class: 'fancybox'
 							.description
 								.title
 									= post.title
 								.like
-									%i.fa.fa-thumbs-o-up
+									%i.glyphicon.glyphicon-heart
 									= post.get_likes.size
-								.content
-									= post.description.html_safe
+								/ .content
+								/ 	= post.description.html_safe
 							.author
 								.author_thumb
 									= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")

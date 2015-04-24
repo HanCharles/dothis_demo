@@ -442,7 +442,7 @@ header {
     }
 }
 
-#post_show {
+.post_show {
     width: 1050px;
     margin: 0;
 
@@ -474,9 +474,6 @@ header {
                 font-weight: bold;
                 font-size: 20px;
                 line-height: 100px;
-                a:hover {
-                    background-color: yellow;
-                }
             }
             .description {
                 float: left;
