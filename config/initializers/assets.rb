@@ -14,5 +14,3 @@ Rails.application.config.assets.precompile += %w( blank.gif )
 Rails.application.config.assets.precompile += %w( fancybox-x.png )
 Rails.application.config.assets.precompile += %w( fancybox-y.png )
 Rails.application.config.assets.precompile += %w( fancy_*.png )
-
-Rails.application.config.assets.precompile += %w( related_post.js )
