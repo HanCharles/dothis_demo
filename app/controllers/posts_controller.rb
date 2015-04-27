@@ -14,23 +14,8 @@ class PostsController < ApplicationController
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).all.order("RANDOM()")
 		else
-			# @posts = Post.all.order("RANDOM()")
-			@posts_story = Post.all.where(is_sale: false)
-			@posts_sale = Post.all.where(is_sale: true)
-			# posts = []
-			# index = 0
-			# total = posts_story.size + posts_sale.size
-			# while index < total
-			# 	remainder = index%11
-			# 	round = index/11
-			# 	if remainder < 2
-			# 		posts = posts << posts_story.at(round * 2 + remainder)
-			# 	else
-			# 		posts = posts << posts_sale.at(round * 2 + remainder - 2)
-			# 	end
-			# 	index = index + 1
-			# end
-			# @posts = posts.flatten
+			@posts_story = Post.all.where(is_sale: false).order("RANDOM()")
+			@posts_sale = Post.all.where(is_sale: true).order("RANDOM()")
 		end
 	end
 
@@ -39,9 +24,9 @@ class PostsController < ApplicationController
 		posts_story = []
 		posts_sale = []
 		@post.tag_list.each do |tag|
-			story = Post.tagged_with(tag).all.where(is_sale: false)
+			story = Post.tagged_with(tag).all.where(is_sale: false).order("RANDOM()")
 			posts_story = posts_story << story
-			sale = Post.tagged_with(tag).all.where(is_sale: true)
+			sale = Post.tagged_with(tag).all.where(is_sale: true).order("RANDOM()")
 			posts_sale = posts_sale << sale
 		end
 		@posts_story = posts_story.flatten.uniq
