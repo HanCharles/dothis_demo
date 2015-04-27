@@ -1,50 +1,107 @@
-.posts.transitions-enabled
-	- @posts.each do |post|
-		- if post.is_sale?
-			.box.panel.panel-default
-				= link_to (image_tag post.image.url, class: "sale"), post, class: 'fancybox'
-				.saletype
-					.price
-						&#8361
-						= post.price
-					.description
-						.title
-							= post.title
-							%br
-							&#8361
-							= post.price
-						.like
-							%i.glyphicon.glyphicon-heart
-							= post.get_likes.size
-					.author
-						.author_thumb
-							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
-						.author_name
-							- if post.user.name
-								= link_to post.user.name, post.user
-							- else
-								= link_to post.user.email, post.user
-						.author_info
-							= post.user.professional_field
-		- else
-			.box.panel.panel-default
-				.storytype
-					= link_to (image_tag post.image.url, class: "story"), post, class: 'fancybox'
-					.description
-						.title
-							= post.title
-						.like
-							%i.glyphicon.glyphicon-heart
-							= post.get_likes.size
-						/ .content
-						/ 	= post.description.html_safe
-					.author
-						.author_thumb
-							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
-						.author_name
-							- if post.user.name
-								= link_to post.user.name, post.user
-							- else
-								= link_to post.user.email, post.user
-						.author_info
-							= post.user.professional_field
+story :
+= @posts_story.length
+sale :
+= @posts_sale.length
+- total = @posts_story.length + @posts_sale.length
+total :
+= total
+round :
+= round = total / 11 + 1
+- idx = 0
+%br
+- while idx < round
+	round start
+	- posts_index = 0
+	- while posts_index < 11
+		- remainder = posts_index % 11
+		= idx
+		= posts_index
+		= remainder
+		- if remainder == 0
+			= @posts_story[idx * 2, 2].each_slice(2) do |posts|
+				.row
+					- posts.each do |post|
+						.col-md-6
+							.post_story
+								.image_wrapper
+									= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
+		- if remainder == 2
+			= @posts_sale[idx * 9, 9].each_slice(3) do |posts|
+				.row
+					.sale_body
+						- posts.each do |post|
+							.col-md-4
+								.post_sale
+									.image_wrapper
+										= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
+										.description
+											.title
+												= post.title
+												%br
+												&#8361
+												= post.price
+											.like
+												= post.get_likes.size
+												%i.glyphicon.glyphicon-heart
+										.author
+											.author_thumb
+												= image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb")
+											.author_name
+												- if post.user.name
+													= link_to post.user.name, post.user
+												- else
+													= link_to post.user.email, post.user
+											.author_info
+												= post.user.professional_field
+		- posts_index = posts_index + 1
+	- idx = idx + 1
+/ .posts.transitions-enabled
+/ 	- @posts.each do |post|
+/ 		- if post.is_sale?
+/ 			.box.panel.panel-default
+/ 				= link_to (image_tag post.image.url, class: "sale"), post, class: 'fancybox'
+/ 				.saletype
+/ 					.price
+/ 						&#8361
+/ 						= post.price
+/ 					.description
+/ 						.title
+/ 							= post.title
+/ 							%br
+/ 							&#8361
+/ 							= post.price
+/ 						.like
+/ 							%i.glyphicon.glyphicon-heart
+/ 							= post.get_likes.size
+/ 					.author
+/ 						.author_thumb
+/ 							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+/ 						.author_name
+/ 							- if post.user.name
+/ 								= link_to post.user.name, post.user
+/ 							- else
+/ 								= link_to post.user.email, post.user
+/ 						.author_info
+/ 							= post.user.professional_field
+/ 		- else
+/ 			.box.panel.panel-default
+/ 				.storytype
+/ 					= link_to (image_tag post.image.url, class: "story"), post, class: 'fancybox'
+/ 					.description
+/ 						.title
+/ 							= post.title
+/ 						.like
+/ 							%i.glyphicon.glyphicon-heart
+/ 							= post.get_likes.size
+/ 						/ .content
+/ 						/ 	= post.description.html_safe
+/ 					.author
+/ 						.author_thumb
+/ 							= image_tag(post.user.avatar.url(:thumb), class: "round-image-thumb")
+/ 						.author_name
+/ 							- if post.user.name
+/ 								= link_to post.user.name, post.user
+/ 							- else
+/ 								= link_to post.user.email, post.user
+/ 						.author_info
+/ 							= post.user.professional_field
