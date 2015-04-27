@@ -19,6 +19,36 @@
 @import "bootstrap";
 @import "font-awesome.css";
 
+@charset "utf-8";
+@font-face {
+    font-family: ‘Nanum Barun Gothic’;
+    font-style: normal;
+    font-weight: 400;
+    src: local(‘Nanum Barun Gothic Regular’), local(‘Nanum Barun Gothic-Regular’), local(‘NanumBarunGothic Regular’);
+    src: url(“/assests/NanumBarunGothic.eot”);
+    src: url(“/assests/NanumBarunGothic.eot?#iefix”) format(‘embedded-opentype’),
+    url(“/assests/NanumBarunGothic.woff”) format(‘woff’),
+    url(“/assests/NanumBarunGothic.ttf”) format(‘truetype’),
+    url(“/assests/NanumBarunGothic.svg”) format(‘svg’);
+}
+
+@font-face {
+    font-family: ‘Nanum Barun Gothic’ ;
+    font-style: normal;
+    font-weight: 700;
+    src: local(‘Nanum Barun Gothic Bold’), local(‘Nanum Barun Gothic-Bold’), local(‘NanumBarunGothic Bold’);
+    src: url(“/assests/NanumBarunGothicBold.eot”);
+    src: url(“/assests/NanumBarunGothicBold.eot?#iefix”) format(‘embedded-opentype’),
+    url(“/assests/NanumBarunGothicBold.woff”) format(‘woff’),
+    url(“/assests/NanumBarunGothicBold.ttf”) format(‘truetype’),
+    url(“/assests/NanumBarunGothicBold.svg”) format(‘svg’);
+}
+
+body, div, ul, li
+{
+    font-family: ‘Nanum Barun Gothic’,sans-serif !important;
+}
+
 #notice_wrapper {
     position: absolute;
     top: 0;
@@ -546,38 +576,3 @@ a.tag {
 textarea {
     min-height: 20px;
 }
-/*
-#ingredients, #directions {
-    background: white;
-    @include box-shadow;
-    min-height: 360px;
-    border-radius: 5px;
-    padding: 2em 8%;
-}
-
-#ingredients, #directions {
-    margin-bottom: 50px;
-    ul, ol {
-        padding-left: 18px;
-        li {
-            padding: 1em 0;
-            border-bottom: 1px solid #EAEAEA;
-        }
-    }
-}
-
-.form-inline {
-    margin-top: 15px;
-}
-.form-input {
-    width: 65% !important;
-    float: left;
-}
-.form-button {
-    float: left;
-    width: 30% !important;
-    margin-left: 5%;
-}
-.add-button {
-    margin-top: 25px;
-}*/
