@@ -67,35 +67,37 @@
 			.row
 				.sale_body
 					- posts.each do |post|
-						.col-md-6
-							.post_story
-								.image_wrapper
-									= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
+						- if post.id != @post.id
+							.col-md-6
+								.post_story
+									.image_wrapper
+										= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
 		%h2 당신을 위한 작품
 		= @posts_sale.each_slice(3) do |posts|
 			.row
 				.sale_body
 					- posts.each do |post|
-						.col-md-4
-							.post_sale
-								.image_wrapper
-									= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
-									.description
-										.title
-											= post.title
-											%br
-											&#8361
-											= post.price
-										.like
-											= post.get_likes.size
-											%i.glyphicon.glyphicon-heart
-									.author
-										.author_thumb
-											= image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb")
-										.author_name
-											- if post.user.name
-												= link_to post.user.name, post.user
-											- else
-												= link_to post.user.email, post.user
-										.author_info
-											= post.user.professional_field
+						- if post.id != @post.id
+							.col-md-4
+								.post_sale
+									.image_wrapper
+										= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
+										.description
+											.title
+												= post.title
+												%br
+												&#8361
+												= post.price
+											.like
+												= post.get_likes.size
+												%i.glyphicon.glyphicon-heart
+										.author
+											.author_thumb
+												= image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb")
+											.author_name
+												- if post.user.name
+													= link_to post.user.name, post.user
+												- else
+													= link_to post.user.email, post.user
+											.author_info
+												= post.user.professional_field

@@ -232,7 +232,6 @@ header {
         /*border: 1px solid red;*/
         height: 50px;
         padding: 5px 15px 0 15px;
-        border-bottom: 1px solid rgb(163, 163, 163);
         /*background: #04163F;*/
         .title {
             /*border: 1px solid yellow;*/
@@ -254,6 +253,10 @@ header {
             max-width: 20%;
             float: right;
         }
+    }
+    .divide {
+        margin: 0 15px 0 15px;
+        border-bottom: 1px solid rgb(163, 163, 163);
     }
     .author {
         /*border: 1px solid red;*/
