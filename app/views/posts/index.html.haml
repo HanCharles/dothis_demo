@@ -16,6 +16,7 @@
 											.image_wrapper
 												= image_tag post.image.url(:front_image)
 												%h2= post.title
+												.divide
 		- if posts_index == 1
 			- if @posts_sale[idx * 9, 9]
 				= @posts_sale[idx * 9, 9].each_slice(3) do |posts|

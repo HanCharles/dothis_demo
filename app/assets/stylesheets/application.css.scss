@@ -240,7 +240,7 @@ header {
             height: 100%;
             position: absolute;
             padding-top: 25%;
-            padding-bottom: 25%;
+            /*padding-bottom: 25%;*/
             margin: 0;
             font-weight: bold;
             background-color: rgba(0,0,0,0.25);
@@ -258,7 +258,13 @@ header {
         }
         .divide {
             position: absolute;
-            border: 3px solid white;
+            width: 80%;
+            height: 48%;
+            padding-bottom: 25%;
+            margin-left: 10%;
+            bottom: 0;
+            left: 0;
+            border-top: 3px solid white;
         }
         img {
             width: 100%;
