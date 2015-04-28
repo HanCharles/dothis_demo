@@ -70,7 +70,7 @@
 						- if post.id != @post.id
 							.col-md-6
 								.post_story
-									.image_wrapper
+									.box_wrapper
 										= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
 		%h2 당신을 위한 작품
 		= @posts_sale.each_slice(3) do |posts|
@@ -80,8 +80,8 @@
 						- if post.id != @post.id
 							.col-md-4
 								.post_sale
-									.image_wrapper
-										= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
+									.box_wrapper
+										= link_to (image_tag post.image.url(:sale_image)), post, class: 'fancybox'
 										.description
 											.title
 												= post.title

@@ -44,7 +44,7 @@
     url(“/assests/NanumBarunGothicBold.svg”) format(‘svg’);
 }
 
-body, div, ul, li
+*
 {
     font-family: ‘Nanum Barun Gothic’,sans-serif !important;
 }
@@ -221,19 +221,39 @@ header {
     border-radius: 5px;
     margin-bottom: 40px;
     @include story-box-shadow;
-    .image_wrapper {
+    .box_wrapper {
         max-width: 100%;
         border-radius: 5px;
         overflow: hidden;
+        position: relative;
     }
-    img {
-        width: 100%;
-        -webkit-transition: all .3s ease-out;
-        -moz-transition: all .3s ease-out;
-        -o-transition: all .3s ease-out;
-        transition: all .3s ease-out;
+    .image_wrapper{
         &:hover {
+            -webkit-transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            transition: all .3s ease-out;
             transform: scale(1.075);
+        }
+        h2 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            padding-top: 25%;
+            margin: 0;
+            font-weight: bold;
+            background-color: rgba(0,0,0,0.25);
+            top: 0;
+            left: 0;
+            text-align: center;
+            color: white;
+            .divide {
+                margin: 0 15px 0 15px;
+                border-bottom: 1px solid rgb(163, 163, 163);
+            }
+        }
+        img {
+            width: 100%;
         }
     }
 }
@@ -243,7 +263,7 @@ header {
     border-radius: 5px;
     margin-bottom: 40px;
     @include sale-box-shadow;
-    .image_wrapper {
+    .box_wrapper {
         max-width: 100%;
         border-radius: 5px 5px 0 0;
         overflow: hidden;
