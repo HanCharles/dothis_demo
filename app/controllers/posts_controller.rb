@@ -31,6 +31,8 @@ class PostsController < ApplicationController
 		end
 		@posts_story = posts_story.flatten.uniq
 		@posts_sale = posts_sale.flatten.uniq
+		@posts_story.delete(@post)
+		@posts_sale.delete(@post)
 		render layout: 'fancybox'
 	end
 
