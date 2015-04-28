@@ -240,19 +240,25 @@ header {
             height: 100%;
             position: absolute;
             padding-top: 25%;
+            padding-bottom: 25%;
             margin: 0;
             font-weight: bold;
             background-color: rgba(0,0,0,0.25);
             top: 0;
             left: 0;
             text-align: center;
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             a {
-                color: white;
+                text-decoration: none;
+                word-wrap: break-word;
             }
         }
         .divide {
-            margin: 0 15px 0 15px;
-            border-bottom: 1px solid rgb(163, 163, 163);
+            position: absolute;
+            border: 3px solid white;
         }
         img {
             width: 100%;

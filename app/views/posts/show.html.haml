@@ -71,7 +71,10 @@
 							.col-md-6
 								.post_story
 									.box_wrapper
-										= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
+										= link_to post, class: 'fancybox' do
+											.image_wrapper
+												= image_tag post.image.url(:front_image)
+												%h2= post.title
 		%h2 당신을 위한 작품
 		= @posts_sale.each_slice(3) do |posts|
 			.row

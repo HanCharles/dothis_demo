@@ -29,9 +29,10 @@
 						.col-md-6
 							.post_story
 								.box_wrapper
-									.image_wrapper
-										= link_to (image_tag post.image.url(:front_image)), post, class: 'fancybox'
-										%h2= link_to post.title, post, class: 'fancybox'
+									= link_to post, class: 'fancybox' do
+										.image_wrapper
+											= image_tag post.image.url(:front_image)
+											%h2= post.title
 		- if remainder == 2
 			= @posts_sale[idx * 9, 9].each_slice(3) do |posts|
 				.row
