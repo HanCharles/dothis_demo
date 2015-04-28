@@ -246,11 +246,13 @@ header {
             top: 0;
             left: 0;
             text-align: center;
-            color: white;
-            .divide {
-                margin: 0 15px 0 15px;
-                border-bottom: 1px solid rgb(163, 163, 163);
+            a {
+                color: white;
             }
+        }
+        .divide {
+            margin: 0 15px 0 15px;
+            border-bottom: 1px solid rgb(163, 163, 163);
         }
         img {
             width: 100%;
