@@ -39,7 +39,7 @@
 											.divide
 											.author
 												.author_thumb
-													= image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb")
+													= link_to image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb"), post.user
 												.author_name
 													- if post.user.name
 														= link_to post.user.name, post.user

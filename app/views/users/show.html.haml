@@ -16,7 +16,7 @@
 			님의 작품
 	= image_tag "/images/user_arrow.png", class: "user_arrow"
 - total = @posts_story.length + @posts_sale.length
-- round = total / 11 + 1
+- round = (@posts_story.length / 2 + 1) > (@posts_sale.length / 9 + 1) ? @posts_story.length / 2 + 1 : @posts_sale.length / 2 + 1
 - idx = 0
 - while idx < round
 	- posts_index = 0
@@ -33,6 +33,7 @@
 											.image_wrapper
 												= image_tag post.image.url(:front_image)
 												%h2= post.title
+												.divide
 		- if posts_index == 1
 			- if @posts_sale[idx * 9, 9]
 				= @posts_sale[idx * 9, 9].each_slice(3) do |posts|
@@ -55,7 +56,7 @@
 											.divide
 											.author
 												.author_thumb
-													= image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb")
+													= link_to image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb"), post.user
 												.author_name
 													- if post.user.name
 														= link_to post.user.name, post.user

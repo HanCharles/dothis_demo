@@ -17,7 +17,7 @@
 							%span.glyphicon.glyphicon-heart
 					.author
 						.author_thumb
-							= image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb")
+							= link_to image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb"), @post.user
 						.author_name
 							- if @post.user.name
 								= link_to @post.user.name, @post.user
@@ -37,7 +37,7 @@
 					= @post.title
 				.author
 					.author_thumb
-						= image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb")
+						= link_to image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb"), @post.user
 					.author_name
 						- if @post.user.name
 							= link_to @post.user.name, @post.user
@@ -74,6 +74,7 @@
 										.image_wrapper
 											= image_tag post.image.url(:front_image)
 											%h2= post.title
+											.divide
 		%h2 당신을 위한 작품
 		= @posts_sale.each_slice(3) do |posts|
 			.row
@@ -95,7 +96,7 @@
 									.divide
 									.author
 										.author_thumb
-											= image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb")
+											= link_to image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb"), post.user
 										.author_name
 											- if post.user.name
 												= link_to post.user.name, post.user
