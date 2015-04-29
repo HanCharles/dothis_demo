@@ -1,5 +1,5 @@
 - total = @posts_story.length + @posts_sale.length
-- round = total / 11 + 1
+- round = (@posts_story.length / 2 + 1) > (@posts_sale.length / 9 + 1) ? @posts_story.length / 2 + 1 : @posts_sale.length / 2 + 1
 - idx = 0
 - while idx < round
 	- posts_index = 0
