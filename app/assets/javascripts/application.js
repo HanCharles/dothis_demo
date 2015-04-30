@@ -18,11 +18,23 @@
 //= require_tree .
 //= require ckeditor/init
 
-jQuery(function() {
+// jQuery(function() {
+// 	$("a.fancybox_index").fancybox({
+// 		padding: 0
+// 	});
+// 	$("a.fancybox_related").click(function() {
+// 		$("a.fancybox_index").trigger('click');
+// 	});
+// });
+
+$(document).ready(function() {
 	$("a.fancybox").fancybox({
-		padding: 0
-		// parent: 'body',
-		// type: 'ajax',
+		padding: 0,
+		type: 'iframe',
+		maxWidth: 1070,
+		width: 1070,
+		height: 1000,
+		scrolling: 'auto'
 	});
 });
 

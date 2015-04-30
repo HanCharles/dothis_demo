@@ -1,3 +1,4 @@
+/ = render 'fancybox'
 .post_show
 	- if @post.is_sale?
 		.sale_type
@@ -50,9 +51,9 @@
 		- if @post.is_sale?
 			= image_tag "/images/sale_detail_format.png"
 			%p.description= @post.sale_detail.html_safe
-	.post_tag
-		- if @post.tag_list.size > 0
-			.tag_list= fa_icon('tags') + " " + tag_icons(@post.tag_list)
+	/ .post_tag
+	/ 	- if @post.tag_list.size > 0
+	/ 		.tag_list= fa_icon('tags') + " " + tag_icons(@post.tag_list)
 	.post_footer
 		- if user_signed_in?
 			= link_to "수정", edit_post_path, class: "fancybox btn btn-default"
@@ -70,7 +71,7 @@
 						.col-md-6
 							.post_story
 								.box_wrapper
-									= link_to post, class: 'fancybox' do
+									= link_to post do
 										.image_wrapper
 											= image_tag post.image.url(:front_image)
 											%h2= post.title
@@ -83,7 +84,7 @@
 						.col-md-4
 							.post_sale
 								.box_wrapper
-									= link_to (image_tag post.image.url(:sale_image)), post, class: 'fancybox'
+									= link_to (image_tag post.image.url(:sale_image)), post
 									.description
 										.title
 											= post.title

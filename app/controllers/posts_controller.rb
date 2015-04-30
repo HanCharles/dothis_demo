@@ -12,7 +12,8 @@ class PostsController < ApplicationController
 
 	def index
 		if params[:tag]
-			@posts = Post.tagged_with(params[:tag]).all.order("RANDOM()")
+			@posts_story = Post.tagged_with(params[:tag]).all.where(is_sale: false).order("RANDOM()")
+			@posts_sale = Post.tagged_with(params[:tag]).all.where(is_sale: true).order("RANDOM()")
 		else
 			@posts_story = Post.all.where(is_sale: false).order("RANDOM()")
 			@posts_sale = Post.all.where(is_sale: true).order("RANDOM()")
