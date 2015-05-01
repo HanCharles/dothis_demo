@@ -34,7 +34,7 @@ $(document).ready(function() {
 		maxWidth: 1070,
 		width: 1070,
 		height: 2000,
-		scrolling: 'auto'
+		scrolling: 'yes'
 		// beforeShow: function(){
 		// 	$("body").css({'overflow-y':'hidden'});
 		// },
