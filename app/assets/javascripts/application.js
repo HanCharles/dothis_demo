@@ -33,8 +33,14 @@ $(document).ready(function() {
 		type: 'iframe',
 		maxWidth: 1070,
 		width: 1070,
-		height: 1000,
+		height: 2000,
 		scrolling: 'auto'
+		// beforeShow: function(){
+		// 	$("body").css({'overflow-y':'hidden'});
+		// },
+		// afterClose: function(){
+		// 	$("body").css({'overflow-y':'visible'});
+		// }
 	});
 });
 
