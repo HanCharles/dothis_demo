@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
 	def search
 		if params[:search]
-			@posts = Post.search(params[:search])
+			@posts_story = Post.search(params[:search]).where(is_sale: false).order("RANDOM()")
+			@posts_sale = Post.search(params[:search]).where(is_sale: true).order("RANDOM()")
 		else
 			@posts = Post.all.order("RANDOM()")
 		end
