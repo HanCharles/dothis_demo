@@ -9,7 +9,7 @@
 				= @posts_story[idx * 2, 2].each_slice(2) do |posts|
 					.row
 						- posts.each do |post|
-							.col-md-6
+							.col-md-6.col-xs-6
 								.post_story
 									.box_wrapper
 										= link_to post, class: 'fancybox' do
@@ -23,7 +23,7 @@
 					.row
 						.sale_body
 							- posts.each do |post|
-								.col-md-4
+								.col-sm-4.col-xs-6
 									.post_sale
 										.box_wrapper
 											= link_to (image_tag post.image.url(:sale_image)), post, class: 'fancybox'

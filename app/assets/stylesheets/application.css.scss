@@ -225,141 +225,284 @@ header {
     }
 }*/
 
-.post_story {
-    background: white;
-    border-radius: 5px;
-    margin-bottom: 40px;
-    @include story-box-shadow;
-    .box_wrapper {
-        max-width: 100%;
+@media screen and (min-width: 760px){
+    .post_story {
+        background: white;
         border-radius: 5px;
-        overflow: hidden;
-        position: relative;
+        margin-bottom: 40px;
+        @include story-box-shadow;
+        .box_wrapper {
+            max-width: 100%;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        .image_wrapper{
+            &:hover {
+                -webkit-transition: all .3s ease-out;
+                -moz-transition: all .3s ease-out;
+                -o-transition: all .3s ease-out;
+                transition: all .3s ease-out;
+                transform: scale(1.075);
+            }
+            h2 {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                padding-top: 25%;
+                /*padding-bottom: 25%;*/
+                margin: 0;
+                font-weight: bold;
+                background-color: rgba(0,0,0,0.50);
+                top: 0;
+                left: 0;
+                text-align: center;
+                color: white;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                a {
+                    text-decoration: none;
+                    word-wrap: break-word;
+                }
+            }
+            .divide {
+                position: absolute;
+                width: 80%;
+                height: 48%;
+                padding-bottom: 25%;
+                margin-left: 10%;
+                bottom: 0;
+                left: 0;
+                border-top: 3px solid white;
+            }
+            img {
+                width: 100%;
+            }
+        }
     }
-    .image_wrapper{
-        &:hover {
+
+    .post_sale {
+        background: white;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        @include sale-box-shadow;
+        .box_wrapper {
+            max-width: 100%;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+        }
+        img {
+            width: 100%;
             -webkit-transition: all .3s ease-out;
             -moz-transition: all .3s ease-out;
             -o-transition: all .3s ease-out;
             transition: all .3s ease-out;
-            transform: scale(1.075);
+            &:hover {
+                transform: scale(1.075);
+            }
         }
-        h2 {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            padding-top: 25%;
-            /*padding-bottom: 25%;*/
-            margin: 0;
-            font-weight: bold;
-            background-color: rgba(0,0,0,0.50);
-            top: 0;
-            left: 0;
-            text-align: center;
-            color: white;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            a {
-                text-decoration: none;
-                word-wrap: break-word;
+        .description {
+            /*border: 1px solid red;*/
+            height: 50px;
+            padding: 5px 15px 0 15px;
+            /*background: #04163F;*/
+            .title {
+                /*border: 1px solid yellow;*/
+                /*color: white;*/
+                font-size: 15px;
+                text-align: left;
+                margin: 0;
+                max-width: 80%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                float: left;
+            }
+            .like {
+                /*border: 1px solid yellow;*/
+                /*color: white;*/
+                font-size: 10px;
+                margin: 0;
+                max-width: 20%;
+                float: right;
             }
         }
         .divide {
-            position: absolute;
-            width: 80%;
-            height: 48%;
-            padding-bottom: 25%;
-            margin-left: 10%;
-            bottom: 0;
-            left: 0;
-            border-top: 3px solid white;
+            margin: 0 15px 0 15px;
+            border-bottom: 1px solid rgb(163, 163, 163);
         }
-        img {
-            width: 100%;
+        .author {
+            /*border: 1px solid red;*/
+            position: relative;
+            text-align: left;
+            margin: 0;
+            /*height: 50px;*/
+            padding: 3px 0 4px 10px;
+            border-radius: 0px 0px 7px 7px;
+            .author_thumb {
+                width: 50px;
+                height: 50px;
+                float: left;
+                margin-right: 10px;
+            }
+            .author_name {
+                padding-top: 10px;
+                /*color: white;*/
+                height: 25px;
+                line-height: 10px;
+                font-size: 15px;
+                font-weight: bold;
+                a {
+                    color: black;
+                }
+            }
+            .author_info {
+                color: rgb(168, 168, 168);
+                height: 25px;
+                font-size: 12px;
+            }
         }
     }
 }
 
-.post_sale {
-    background: white;
-    border-radius: 5px;
-    margin-bottom: 40px;
-    @include sale-box-shadow;
-    .box_wrapper {
-        max-width: 100%;
-        border-radius: 5px 5px 0 0;
-        overflow: hidden;
-    }
-    img {
-        width: 100%;
-        -webkit-transition: all .3s ease-out;
-        -moz-transition: all .3s ease-out;
-        -o-transition: all .3s ease-out;
-        transition: all .3s ease-out;
-        &:hover {
-            transform: scale(1.075);
-        }
-    }
-    .description {
-        /*border: 1px solid red;*/
-        height: 50px;
-        padding: 5px 15px 0 15px;
-        /*background: #04163F;*/
-        .title {
-            /*border: 1px solid yellow;*/
-            /*color: white;*/
-            font-size: 15px;
-            text-align: left;
-            margin: 0;
-            max-width: 80%;
-            white-space: nowrap;
+@media screen and (max-width: 760px){
+    .post_story {
+        background: white;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        @include story-box-shadow;
+        .box_wrapper {
+            max-width: 100%;
+            border-radius: 5px;
             overflow: hidden;
-            text-overflow: ellipsis;
-            float: left;
+            position: relative;
         }
-        .like {
-            /*border: 1px solid yellow;*/
-            /*color: white;*/
-            font-size: 10px;
-            margin: 0;
-            max-width: 20%;
-            float: right;
-        }
-    }
-    .divide {
-        margin: 0 15px 0 15px;
-        border-bottom: 1px solid rgb(163, 163, 163);
-    }
-    .author {
-        /*border: 1px solid red;*/
-        position: relative;
-        text-align: left;
-        margin: 0;
-        /*height: 50px;*/
-        padding: 3px 0 4px 10px;
-        border-radius: 0px 0px 7px 7px;
-        .author_thumb {
-            width: 50px;
-            height: 50px;
-            float: left;
-            margin-right: 10px;
-        }
-        .author_name {
-            padding-top: 10px;
-            /*color: white;*/
-            height: 25px;
-            line-height: 10px;
-            font-size: 15px;
-            font-weight: bold;
-            a {
-                color: black;
+        .image_wrapper{
+            &:hover {
+                -webkit-transition: all .3s ease-out;
+                -moz-transition: all .3s ease-out;
+                -o-transition: all .3s ease-out;
+                transition: all .3s ease-out;
+                transform: scale(1.075);
+            }
+            h2 {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                padding-top: 25%;
+                /*padding-bottom: 25%;*/
+                margin: 0;
+                font-weight: bold;
+                background-color: rgba(0,0,0,0.50);
+                top: 0;
+                left: 0;
+                text-align: center;
+                color: white;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                a {
+                    text-decoration: none;
+                    word-wrap: break-word;
+                }
+            }
+            .divide {
+                position: absolute;
+                width: 80%;
+                height: 48%;
+                padding-bottom: 25%;
+                margin-left: 10%;
+                bottom: 0;
+                left: 0;
+                border-top: 3px solid white;
+            }
+            img {
+                width: 100%;
             }
         }
-        .author_info {
-            color: rgb(168, 168, 168);
-            height: 25px;
-            font-size: 12px;
+    }
+
+    .post_sale {
+        background: white;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        @include sale-box-shadow;
+        .box_wrapper {
+            max-width: 100%;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+        }
+        img {
+            width: 100%;
+            -webkit-transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+            &:hover {
+                transform: scale(1.075);
+            }
+        }
+        .description {
+            /*border: 1px solid red;*/
+            height: 50px;
+            padding: 5px 15px 0 15px;
+            /*background: #04163F;*/
+            .title {
+                /*border: 1px solid yellow;*/
+                /*color: white;*/
+                font-size: 15px;
+                text-align: left;
+                margin: 0;
+                max-width: 80%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                float: left;
+            }
+            .like {
+                /*border: 1px solid yellow;*/
+                /*color: white;*/
+                font-size: 10px;
+                margin: 0;
+                max-width: 20%;
+                float: right;
+            }
+        }
+        .divide {
+            margin: 0 15px 0 15px;
+            border-bottom: 1px solid rgb(163, 163, 163);
+        }
+        .author {
+            /*border: 1px solid red;*/
+            position: relative;
+            text-align: left;
+            margin: 0;
+            /*height: 50px;*/
+            padding: 3px 0 4px 10px;
+            border-radius: 0px 0px 7px 7px;
+            .author_thumb {
+                width: 50px;
+                height: 50px;
+                float: left;
+                margin-right: 10px;
+            }
+            .author_name {
+                padding-top: 10px;
+                /*color: white;*/
+                height: 25px;
+                line-height: 10px;
+                font-size: 15px;
+                font-weight: bold;
+                a {
+                    color: black;
+                }
+            }
+            .author_info {
+                color: rgb(168, 168, 168);
+                height: 25px;
+                font-size: 12px;
+            }
         }
     }
 }
