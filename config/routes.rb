@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   # get "posts/:filter" => "sales_type#show", as: :sales_type
 
-  root "posts#index"
+  root "posts#category_select"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,6 +11,17 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def category_select
+		tags = []
+		@posts = Post.all.order("RANDOM()")
+		@posts.each do |post|
+			post.tag_list.each do |tag|
+				@tags= tags << tag
+			end
+		end
+		@tags = @tags.flatten.uniq
+	end
+
 	def index
 		if params[:tag]
 			@posts_story = Post.tagged_with(params[:tag]).all.where(is_sale: false).order("RANDOM()")
