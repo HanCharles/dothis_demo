@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
-	before_action :authenticate_user!, except: [:index, :show, :search]
+	before_action :authenticate_user!, except: [:index, :show, :search, :category_select]
 
 	def search
 		if params[:search]
