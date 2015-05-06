@@ -13,22 +13,29 @@ class PostsController < ApplicationController
 
 	def category_select
 		tags = []
-		@posts = Post.all.order("RANDOM()")
+		@posts = User.all.order("created_at DESC")
 		@posts.each do |post|
 			post.tag_list.each do |tag|
 				@tags= tags << tag
 			end
 		end
-		@tags = @tags.flatten.uniq
+		if @tags
+			@tags = @tags.flatten.uniq
+		end
 	end
 
 	def index
 		if params[:tag]
-			@posts_story = Post.tagged_with(params[:tag]).all.where(is_sale: false).order("RANDOM()")
-			@posts_sale = Post.tagged_with(params[:tag]).all.where(is_sale: true).order("RANDOM()")
+			@tag = params[:tag]
+			tag_list = params[:tag]
+			brand = []
+			tag_list.each do |tag|
+				user = User.tagged_with(tag).all.order("RANDOM()")
+				brand = brand << user
+			end
+			@users = brand.flatten.uniq
 		else
-			@posts_story = Post.all.where(is_sale: false).order("RANDOM()")
-			@posts_sale = Post.all.where(is_sale: true).order("RANDOM()")
+			@users = User.all.order("RANDOM()")
 		end
 	end
 
@@ -96,7 +103,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :description, :image, :tag_list_fixed, :is_sale, :price, :sale_url, :sale_detail)
+		params.require(:post).permit(:title, :description, :image, :tag_list_fixed, :is_sale, :price, :sale_url, :sale_detail, :link_url, :source_url)
 	end
 
 	def find_post

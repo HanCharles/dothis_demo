@@ -15,54 +15,84 @@
 				DoThis
 			님의 작품
 	= image_tag "/images/user_arrow.png", class: "user_arrow"
-- total = @posts_story.length + @posts_sale.length
-- round = (@posts_story.length / 2 + 1) > (@posts_sale.length / 9 + 1) ? @posts_story.length / 2 + 1 : @posts_sale.length / 2 + 1
-- idx = 0
-- while idx < round
-	- posts_index = 0
-	- while posts_index < 2
-		- if posts_index == 0
-			- if @posts_story[idx * 2, 2]
-				= @posts_story[idx * 2, 2].each_slice(2) do |posts|
-					.row
-						- posts.each do |post|
-							.col-md-6
-								.post_story
-									.box_wrapper
-										= link_to post, class: 'fancybox' do
-											.image_wrapper
-												= image_tag post.image.url(:front_image)
-												%h2= post.title
-												.divide
-		- if posts_index == 1
-			- if @posts_sale[idx * 9, 9]
-				= @posts_sale[idx * 9, 9].each_slice(3) do |posts|
-					.row
-						.sale_body
-							- posts.each do |post|
-								.col-md-4
-									.post_sale
-										.box_wrapper
-											= link_to (image_tag post.image.url(:sale_image)), post, class: 'fancybox'
-											.description
-												.title
-													= post.title
-													%br
-													&#8361
-													= post.price
-												.like
-													= post.get_likes.size
-													%i.glyphicon.glyphicon-heart
-											.divide
-											.author
-												.author_thumb
-													= link_to image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb"), post.user
-												.author_name
-													- if post.user.name
-														= link_to post.user.name, post.user
-													- else
-														= link_to post.user.email, post.user
-												.author_info
-													= post.user.professional_field
-		- posts_index = posts_index + 1
-	- idx = idx + 1
+.description_header
+	%h2
+		이 브랜드
+		%small 와 관련된
+		스토리
+		%small 및
+		구매
+- @posts_story.each_slice(3) do |stories|
+	.row
+		- stories.each do |story|
+			- sales = []
+			.col-md-4.col-xs-6
+				.brand-story
+					.box_wrapper
+						.image_wrapper
+							= link_to (image_tag story.image.url(:sale_image)), story
+						.description
+							.title
+								= story.title
+						.links
+							= link_to story.link_url, target: "_blank" do
+								.story_button
+									스토리 보기
+							- story.tag_list.each do |tag|
+								- sale = @posts_sale.tagged_with(tag).all.order("RANDOM()")
+								- sales = sales << sale
+							- @sales = sales.flatten.uniq
+							= link_to @sales.last, class: 'fancybox' do
+								.sale_button
+									구매 정보
+/ - total = @posts_story.length + @posts_sale.length
+/ - round = (@posts_story.length / 2 + 1) > (@posts_sale.length / 9 + 1) ? @posts_story.length / 2 + 1 : @posts_sale.length / 2 + 1
+/ - idx = 0
+/ - while idx < round
+/ 	- posts_index = 0
+/ 	- while posts_index < 2
+/ 		- if posts_index == 0
+/ 			- if @posts_story[idx * 2, 2]
+/ 				= @posts_story[idx * 2, 2].each_slice(2) do |posts|
+/ 					.row
+/ 						- posts.each do |post|
+/ 							.col-md-6
+/ 								.post_story
+/ 									.box_wrapper
+/ 										= link_to post, class: 'fancybox' do
+/ 											.image_wrapper
+/ 												= image_tag post.image.url(:front_image)
+/ 												%h2= post.title
+/ 												.divide
+/ 		- if posts_index == 1
+/ 			- if @posts_sale[idx * 9, 9]
+/ 				= @posts_sale[idx * 9, 9].each_slice(3) do |posts|
+/ 					.row
+/ 						.sale_body
+/ 							- posts.each do |post|
+/ 								.col-md-4
+/ 									.post_sale
+/ 										.box_wrapper
+/ 											= link_to (image_tag post.image.url(:sale_image)), post, class: 'fancybox'
+/ 											.description
+/ 												.title
+/ 													= post.title
+/ 													%br
+/ 													&#8361
+/ 													= post.price
+/ 												.like
+/ 													= post.get_likes.size
+/ 													%i.glyphicon.glyphicon-heart
+/ 											.divide
+/ 											.author
+/ 												.author_thumb
+/ 													= link_to image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb"), post.user
+/ 												.author_name
+/ 													- if post.user.name
+/ 														= link_to post.user.name, post.user
+/ 													- else
+/ 														= link_to post.user.email, post.user
+/ 												.author_info
+/ 													= post.user.professional_field
+/ 		- posts_index = posts_index + 1
+/ 	- idx = idx + 1

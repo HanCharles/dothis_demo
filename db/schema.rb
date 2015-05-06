@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424113730) do
+ActiveRecord::Schema.define(version: 20150505124605) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20150424113730) do
     t.integer  "price",              default: 0
     t.string   "sale_url"
     t.text     "sale_detail"
+    t.string   "link_url"
+    t.string   "source_url"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
