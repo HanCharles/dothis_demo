@@ -8,13 +8,14 @@
 		%small 선택하신 후
 		'완료'
 		%small 를 누르세요
-= form_tag posts_path, method: :get do
-	- @tags.each_slice(4) do |tags|
-		.row
-			- tags.each do |tag|
-				.col-sm-3.col-xs-6
-					= check_box_tag("tag[]", tag)
-					= label_tag(tag)
-					%br
-					= image_tag("category_on.png")
-	= submit_tag "완료", name: nil, class: "btn btn-default	"
+- if @tags
+	= form_tag posts_path, method: :get do
+		- @tags.each_slice(4) do |tags|
+			.row
+				- tags.each do |tag|
+					.col-sm-3.col-xs-6
+						= check_box_tag("tag[]", tag)
+						= label_tag(tag)
+						%br
+						= image_tag("category_on.png")
+		= submit_tag "완료", name: nil, class: "btn btn-default	"
