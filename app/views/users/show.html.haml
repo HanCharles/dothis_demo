@@ -38,10 +38,11 @@
 							= link_to story.link_url, target: "_blank" do
 								.story_button
 									스토리 보기
-							- story.tag_list.each do |tag|
-								- sale = @posts_sale.tagged_with(tag).all.order("RANDOM()")
-								- sales = sales << sale
-							- @sales = sales.flatten.uniq
+							/ - story.tag_list.each do |tag|
+							/ 	- sale = @posts_sale.tagged_with(tag).all.order("RANDOM()")
+							/ 	- sales = sales << sale
+							/ - @sales = sales.flatten.uniq
+							- @sales = @posts_sale.tagged_with(story.tag_list).all.order("RANDOM()")
 							= link_to @sales.last, class: 'fancybox' do
 								.sale_button
 									구매 정보
