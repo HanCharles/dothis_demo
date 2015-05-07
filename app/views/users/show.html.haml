@@ -43,9 +43,14 @@
 							/ 	- sales = sales << sale
 							/ - @sales = sales.flatten.uniq
 							- @sales = @posts_sale.tagged_with(story.tag_list).all.order("RANDOM()")
-							= link_to @sales.last, class: 'fancybox' do
-								.sale_button
-									구매 정보
+							- if @sales.empty?
+								= link_to @sales.last do
+									.sale_button
+										구매 정보
+							- else
+								= link_to @sales.last, class: 'fancybox' do
+									.sale_button
+										구매 정보
 / - total = @posts_story.length + @posts_sale.length
 / - round = (@posts_story.length / 2 + 1) > (@posts_sale.length / 9 + 1) ? @posts_story.length / 2 + 1 : @posts_sale.length / 2 + 1
 / - idx = 0
