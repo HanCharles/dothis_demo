@@ -15,7 +15,7 @@
 					.box_wrapper
 						- story = user.posts.where(is_sale:false).all.order("RANDOM()")
 						- idx = 0
-						= link_to user do
+						= link_to user_path(:id => user.id, :tag => @tag) do
 							- story.each_slice(2) do |posts|
 								- if idx > 1 then
 									- break

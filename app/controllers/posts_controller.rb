@@ -41,18 +41,21 @@ class PostsController < ApplicationController
 
 	def show
 		@comments = Comment.where(post_id: @post)
+		@user_sales = User.find(@post.user_id).posts.all.where(is_sale: true).where.not(id: @post.id).order("RANDOM()")
 		posts_story = []
 		posts_sale = []
 		@post.tag_list.each do |tag|
 			story = Post.tagged_with(tag).all.where(is_sale: false).order("RANDOM()")
 			posts_story = posts_story << story
-			sale = Post.tagged_with(tag).all.where(is_sale: true).order("RANDOM()")
-			posts_sale = posts_sale << sale
+			# sale = Post.tagged_with(tag).all.where(is_sale: true).order("RANDOM()")
+			# posts_sale = posts_sale << sale
 		end
 		@posts_story = posts_story.flatten.uniq
-		@posts_sale = posts_sale.flatten.uniq
-		@posts_story.delete(@post)
-		@posts_sale.delete(@post)
+		@posts = Post.all.order("created_at DESC")
+		# @posts_sale = posts_sale.flatten.uniq
+		# @user_sales.except(@post)
+		# @posts_story.delete(@post)
+		# @posts_sale.delete(@post)
 		render layout: 'fancybox'
 	end
 

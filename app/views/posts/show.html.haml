@@ -1,41 +1,19 @@
-/ = render 'fancybox'
 .post_show
-	- if @post.is_sale?
-		.sale_type
-			.post_heading
-				%span
-					= link_to "구매하기", @post.sale_url, class: "buy_btn", :target => "_blank"
-				%span.description
-					.title
-						= @post.title
-					.price
-						&#8361
-						= @post.price
-				%span.heading_right
-					.like
-						= @post.get_upvotes.size
-						= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
-							%span.glyphicon.glyphicon-heart
-					.author
-						.author_thumb
-							= link_to image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb"), @post.user
-						.author_name
-							- if @post.user.name
-								= link_to @post.user.name, @post.user
-							- else
-								= link_to @post.user.email, @post.user
-						.author_info
-							= @post.user.professional_field
-			.arrow-down
-	- else
-		.story_type
-			.post_heading
+	.sale_type
+		.post_heading
+			%span
+				= link_to "구매하기", @post.sale_url, class: "buy_btn", :target => "_blank"
+			%span.description
+				.title
+					= @post.title
+				.price
+					&#8361
+					= @post.price
+			%span.heading_right
 				.like
 					= @post.get_upvotes.size
 					= link_to like_post_path(@post), method: :put, class: "btn btn-default" do
 						%span.glyphicon.glyphicon-heart
-				.title
-					= @post.title
 				.author
 					.author_thumb
 						= link_to image_tag(@post.user.avatar.url(:thumb), class: "round-image-thumb"), @post.user
@@ -46,6 +24,7 @@
 							= link_to @post.user.email, @post.user
 					.author_info
 						= @post.user.professional_field
+		.arrow-down
 	.post_body
 		%p.description= @post.description.html_safe
 		- if @post.is_sale?
@@ -58,50 +37,51 @@
 		- if user_signed_in?
 			= link_to "수정", edit_post_path, class: "fancybox btn btn-default"
 			= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }, class: "btn btn-default"
-		= link_to "뒤로가기", root_path, class: "btn btn-default"
-	.post_comments
-		= render 'comments/comments'
-
+		/ = link_to "뒤로가기", posts_path, class: "btn btn-default"
 	.releated_posts
-		%h2 당신을 위한 이야기
-		= @posts_story[0, 2].each_slice(2) do |posts|
+		%h2 이 브랜드의 다른 상품
+		- @user_sales[0, 3].each_slice(3) do |sales|
 			.row
 				.sale_body
-					- posts.each do |post|
-						.col-md-6
-							.post_story
-								.box_wrapper
-									= link_to post do
-										.image_wrapper
-											= image_tag post.image.url(:front_image)
-											%h2= post.title
-											.divide
-		%h2 당신을 위한 작품
-		= @posts_sale.each_slice(3) do |posts|
-			.row
-				.sale_body
-					- posts.each do |post|
-						.col-md-4
+					- sales.each do |sale|
+						.col-md-4.col-xs-6
 							.post_sale
 								.box_wrapper
-									= link_to (image_tag post.image.url(:sale_image)), post
+									= link_to (image_tag sale.image.url(:sale_image)), sale
 									.description
 										.title
-											= post.title
+											= sale.title
 											%br
 											&#8361
-											= post.price
+											= sale.price
 										.like
-											= post.get_likes.size
+											= sale.get_likes.size
 											%i.glyphicon.glyphicon-heart
-									.divide
-									.author
-										.author_thumb
-											= link_to image_tag(post.user.avatar.url(:thumb), class: "round-image-sale-thumb"), post.user
-										.author_name
-											- if post.user.name
-												= link_to post.user.name, post.user
-											- else
-												= link_to post.user.email, post.user
-										.author_info
-											= post.user.professional_field
+		%h2 당신을 위한 추천 스토리
+		- @posts_story[0, 3].each_slice(3) do |stories|
+			.row
+				.sale_body
+					- stories.each do |story|
+						.col-md-4.col-xs-6
+							.brand-story
+								.box_wrapper
+									.image_wrapper
+										= link_to (image_tag story.image.url(:sale_image)), story
+									.description
+										.title
+											= story.title
+									.links
+										= link_to story.link_url, target: "_blank" do
+											.story_button
+												스토리 보기
+										- @sales = @posts.tagged_with(story.tag_list).where(is_sale: true).all.order("RANDOM()")
+										- if @sales.empty?
+											= link_to @sales.last do
+												.sale_button
+													구매 정보
+										- else
+											= link_to @sales.last, class: 'fancybox' do
+												.sale_button
+													구매 정보
+	.post_comments
+		= render 'comments/comments'
