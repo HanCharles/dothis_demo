@@ -37,7 +37,7 @@
 		- if user_signed_in?
 			= link_to "수정", edit_post_path, class: "fancybox btn btn-default"
 			= link_to "삭제", post_path, method: :delete, data: { confirm: "정말로 삭제 하시겠습니까?" }, class: "btn btn-default"
-		/ = link_to "뒤로가기", posts_path, class: "btn btn-default"
+		= link_to "뒤로가기", posts_path, class: "btn btn-default"
 	.releated_posts
 		%h2 이 브랜드의 다른 상품
 		- @user_sales[0, 3].each_slice(3) do |sales|

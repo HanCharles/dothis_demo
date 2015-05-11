@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 			# posts_sale = posts_sale << sale
 		end
 		@posts_story = posts_story.flatten.uniq
-		@posts = Post.all.order("created_at DESC")
+		@posts = Post.all.order("RANDOM()")
 		# @posts_sale = posts_sale.flatten.uniq
 		# @user_sales.except(@post)
 		# @posts_story.delete(@post)
